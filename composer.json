@@ -1,0 +1,15 @@
+{
+    "name": "shenoda/implemnt-mvc-framework",
+    "authors": [
+        {
+            "name": "Shenoda",
+            "email": "shenodamakramibrahim@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "app\\" : "./"
+        }
+    }
+}

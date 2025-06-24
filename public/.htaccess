@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^ index.php [QSA,L]
+
+# The .htaccess file sends all web requests that aren't for real files or folders to index.php to handle them, keeping any extra URL info.
