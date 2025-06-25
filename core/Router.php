@@ -18,6 +18,11 @@ class Router
     {
         $this->routes['get'][$path] = $callback;
     }
+
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
+    }
     public function resolve() //Router uses Request to know what the client is asking for
     {
         $path = $this->request->getPath();
@@ -26,27 +31,41 @@ class Router
 
         if (!$callback) {
             $this->response->setStatusCode(404);
-            return "NOT FOUND";
+            $this->renderViews("_404");
         }
         if(is_string($callback)) {
             $this->renderViews($callback);
             exit;
         }
-        return call_user_func($callback);
+        if(is_array($callback)) {
+            $callback[0] = new $callback[0]();
+        }
+        return call_user_func($callback, $this->request);
     }
 
-    private function renderViews($view)
+    public function renderViews($view, $params = []): void
     {
         $layoutContent = $this->layoutContent();
-        $viewContent = $this->viewContent($view);
+        $viewContent = $this->viewContent($view, $params);
         echo str_replace("{{content}}", $viewContent, $layoutContent);
     }
-    protected function layoutContent() {
+
+    public function renderContent($viewContent, $params = []): void
+    {
+        $layoutContent = $this->layoutContent();
+        echo str_replace("{{content}}", $viewContent, $layoutContent);
+    }
+    protected function layoutContent(): false|string
+    {
         ob_start();
         include_once Application::$ROOT_DIR . "/views/layouts/main.php";
         return ob_get_clean();
     }
-    protected function viewContent($view) {
+    protected function viewContent($view, $params = []): false|string
+    {
+        foreach ($params as $key => $value) {
+            $$key = $value;
+        }
         ob_start();
         include_once Application::$ROOT_DIR . "/views/$view.php";
         return ob_get_clean();
