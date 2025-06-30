@@ -7,16 +7,16 @@ use app\core\Request;
 
 class SiteController extends Controller
 {
-    public function home(): void
+    public function home(): false|array|string
     {
         $params = [
             'name' => 'shenodaa'
         ];
-        $this->render('home', $params);
+        return $this->render('home', $params);
     }
-    public function contact(): void
+    public function contact(): false|array|string
     {
-        $this->render('contact');
+        return $this->render('contact');
     }
     public function handleContact(Request $request): void
     {

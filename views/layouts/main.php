@@ -30,11 +30,21 @@
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">register</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 
-{{content}}
+<div class="container">
+    {{content}}
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
