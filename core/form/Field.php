@@ -30,7 +30,6 @@ class Field
                             </div>
                         </div>'
             ,
-
             $this->attribute,
             $this->type,
             $this->attribute,
