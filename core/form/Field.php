@@ -30,7 +30,7 @@ class Field
                             </div>
                         </div>'
             ,
-            $this->attribute,
+            $this->model->getLabel($this->attribute),
             $this->type,
             $this->attribute,
             $this->model->{$this->attribute},
@@ -43,5 +43,4 @@ class Field
         $this->type = self::TYPE_PASSWORD;
         return $this;
     }
-
 }

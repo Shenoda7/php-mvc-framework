@@ -69,6 +69,10 @@ class Database
         $stmt->execute();
     }
 
+    public function prepare($sql) {
+        return $this->pdo->prepare($sql);
+    }
+
     public function log($message) {
         echo '[' . date('Y-m-d H:i:s').'] - ' . $message . PHP_EOL;
     }
