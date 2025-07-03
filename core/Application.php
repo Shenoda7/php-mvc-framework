@@ -4,6 +4,7 @@ namespace app\core;
 
 class Application
 {
+    public string $userClass;
     public Request $request;
     public Router $router;
     public Response $response;
@@ -12,18 +13,27 @@ class Application
     public static $ROOT_DIR;
     public static Application $app;
     public Controller $controller;
+    public ?DbModel $user;
 
     public function __construct($rootPath, array $config)
     {
+        self::$ROOT_DIR = $rootPath;
+        self::$app = $this;
+
+        $this->userClass = $config['userClass'];
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
         $this->session = new Session();
         $this->db = new Database($config['db']);
 
-
-        self::$ROOT_DIR = $rootPath;
-        self::$app = $this;
+        $primaryValue = $this->session->get('user');
+        if ($primaryValue) {
+            $primaryKey = $this->userClass::PrimaryKey();
+            $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
+        } else {
+            $this->user = null;
+        }
     }
 
     public function getController(): Controller
@@ -35,6 +45,30 @@ class Application
     {
         $this->controller = $controller;
     }
+
+    public function login(DbModel $user)
+    {
+        $this->user = $user;
+        $primaryKey = $user->primaryKey(); // "id"
+        $primaryValue = $user->{$primaryKey};
+
+        $this->session->set("user", $primaryValue);
+
+
+        return true;
+    }
+
+    public function logout()
+    {
+        $this->user = null;
+        $this->session->remove("user");
+    }
+
+    public static function isGuest()
+    {
+        return !self::$app->user;
+    }
+
     public function run(): void
     {
         echo $this->router->resolve();
