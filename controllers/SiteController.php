@@ -29,4 +29,6 @@ class SiteController extends Controller
             echo $key . ': ' . $value . "\n";
         }
     }
+
+
 }

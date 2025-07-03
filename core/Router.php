@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\exception\NotFoundException;
+
 class Router
 {
     public Request $request;
@@ -23,6 +25,7 @@ class Router
     {
         $this->routes['post'][$path] = $callback;
     }
+
     public function resolve() //Router uses Request to know what the client is asking for
     {
         $path = $this->request->getPath();
@@ -30,20 +33,26 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
 
         if (!$callback) {
-            $this->response->setStatusCode(404);
-            $this->renderViews("_404");
+            throw new NotFoundException();
         }
-        if(is_string($callback)) {
-            return $this->renderViews($callback);
+        if (is_string($callback)) {
+            return $this->renderView($callback);
         }
-        if(is_array($callback)) {
-           Application::$app->controller = new $callback[0]();
-           $callback[0] = Application::$app->controller;
+        if (is_array($callback)) {
+            /** @var \app\core\Controller $controller */
+            $controller = new $callback[0]();
+            Application::$app->controller = $controller;
+            $controller->action = $callback[1];
+            $callback[0] = $controller;
+
+            foreach ($controller->getMiddlewares() as $middleware) {
+                $middleware->execute();
+            }
         }
         return call_user_func($callback, $this->request);
     }
 
-    public function renderViews($view, $params = []): array|false|string
+    public function renderView($view, $params = []): array|false|string
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->viewContent($view, $params);
@@ -55,13 +64,18 @@ class Router
         $layoutContent = $this->layoutContent();
         return str_replace("{{content}}", $viewContent, $layoutContent);
     }
+
     protected function layoutContent(): false|string
     {
-        $layout = Application::$app->controller->layout;
+        $layout = Application::$app->layout;
+        if (Application::$app->controller) {
+            $layout = Application::$app->controller->layout;
+        }
         ob_start();
         include_once Application::$ROOT_DIR . "/views/layouts/$layout.php";
         return ob_get_clean();
     }
+
     protected function viewContent($view, $params = []): false|string
     {
         foreach ($params as $key => $value) {

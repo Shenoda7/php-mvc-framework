@@ -49,6 +49,10 @@ use app\core\Application;
                         <a class="nav-link"
                            href="/logout">Welcome <?php echo Application::$app->user->getDisplayName(); ?> (logout)</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="/profile">Profile</a>
+                    </li>
                 </ul>
             <?php endif; ?>
         </div>
