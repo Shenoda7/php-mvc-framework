@@ -1,4 +1,8 @@
-<?php /** User: Shenoda */ ?>
+<?php
+/** User: Shenoda */
+/** @var $this \app\core\View */
+$this->title = 'Contact';
+?>
 <h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Contact Us</h1>
 
 <form style="max-width: 500px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); background-color: #fff;" action="" method="post">

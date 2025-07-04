@@ -1,7 +1,11 @@
 <?php /** User: Shenoda */
-    $user = \app\core\Application::$app->user;
+$user = \app\core\Application::$app->user;
+
+/** @var $this \app\core\View */
+$this->title = "profile";
 ?>
-<h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Profile</h1>
+<h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    Profile</h1>
 
 
 <style>
@@ -11,7 +15,7 @@
         padding: 30px;
         background-color: #f9f9f9;
         border-radius: 16px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #333;
     }
