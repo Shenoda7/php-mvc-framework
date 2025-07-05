@@ -1,6 +1,6 @@
 <?php 
 
-use app\core\Application;
+use shenoda\phpmvc\Application;
 
 class m0002_add_pass_col {
     public function up() {

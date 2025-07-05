@@ -5,7 +5,7 @@
 <h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     Create an Account</h1>
 
-<?php $form = app\core\form\Form::begin('', "post"); ?>
+<?php $form = shenoda\phpmvc\form\Form::begin('', "post"); ?>
 
 <div class="row">
     <div class="col">
@@ -23,6 +23,6 @@
 <button type="submit" class="btn btn-primary">
     Submit
 </button>
-<?php echo \app\core\form\Form::end(); ?>
+<?php echo \shenoda\phpmvc\form\Form::end(); ?>
 
 

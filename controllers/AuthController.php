@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\middlewares\AuthMiddleware;
-use app\core\Request;
+use shenoda\phpmvc\Application;
+use shenoda\phpmvc\Controller;
+use shenoda\phpmvc\middlewares\AuthMiddleware;
+use shenoda\phpmvc\Request;
 use app\models\LoginForm;
 use app\models\User;
 

@@ -1,7 +1,7 @@
 <?php /** User: Shenoda */
-$user = \app\core\Application::$app->user;
+$user = \shenoda\phpmvc\Application::$app->user;
 
-/** @var $this \app\core\View */
+/** @var $this \shenoda\phpmvc\View */
 $this->title = "profile";
 ?>
 <h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">

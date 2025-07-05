@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
+use shenoda\phpmvc\Application;
+use shenoda\phpmvc\Controller;
+use shenoda\phpmvc\Request;
 use app\models\ContactForm;
 
 class SiteController extends Controller

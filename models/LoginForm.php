@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\core\Application;
-use app\core\Model;
+use shenoda\phpmvc\Application;
+use shenoda\phpmvc\Model;
 
 class LoginForm extends Model
 {

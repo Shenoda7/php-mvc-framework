@@ -4,7 +4,7 @@
  * Date: 20/6/2025
  */
 
-use app\core\Application;
+use shenoda\phpmvc\Application;
 
 
 ?>
