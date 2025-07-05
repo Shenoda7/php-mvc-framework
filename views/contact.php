@@ -1,20 +1,21 @@
 <?php
 /** User: Shenoda */
 /** @var $this \app\core\View */
+
+/** @var $model \app\models\ContactForm */
+
+use app\core\form\TextareaField;
+
 $this->title = 'Contact';
 ?>
-<h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Contact Us</h1>
+    <h1 style="color: #333; text-align: center; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        Contact Us</h1>
 
-<form style="max-width: 500px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); background-color: #fff;" action="" method="post">
-    <div class="mb-3" style="margin-bottom: 20px;">
-        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Email address</label>
-        <input type="email" name="email"  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px;">
-    </div>
-    <div class="mb-3" style="margin-bottom: 20px;">
-        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Body</label>
-        <label>
-            <textarea name="body" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px;"></textarea>
-        </label>
-    </div>
-    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; font-weight: bold; transition: background-color 0.3s ease;">Submit</button>
-</form>
+<?php $form = \app\core\form\Form::begin('', 'post'); ?>
+<?php echo $form->field($model, 'subject'); ?>
+<?php echo $form->field($model, 'email'); ?>
+<?php echo new TextareaField($model, 'body') ?>
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+<?php echo \app\core\form\Form::end(); ?>

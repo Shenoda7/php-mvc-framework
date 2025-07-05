@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -16,19 +17,16 @@ class SiteController extends Controller
         ];
         return $this->render('home', $params);
     }
-    public function contact()
+    public function contact(Request $request)
     {
-        return $this->render('contact');
-    }
-    public function handleContact(Request $request): void
-    {
-        $body = $request->getBody();
-
-        //for testing
-        foreach ($body as $key => $value) {
-            echo $key . ': ' . $value . "\n";
+        $contact = new ContactForm();
+        if ($request->isPost()) {
+            $contact->loadData($request->getBody());
+            if($contact->validate() && $contact->send()) {
+                Application::$app->session->setFlash('success', 'Thanks for contacting us.');
+                Application::$app->response->redirect('/contact');
+            }
         }
+        return $this->render('contact', ['model' => $contact]);
     }
-
-
 }
