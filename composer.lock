@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56b4e99af57153de9e9ae80cc353fb86",
+    "content-hash": "8a9f360e51d6ed8e3d2ee400d65d4743",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -142,6 +142,40 @@
                 }
             ],
             "time": "2024-07-20T21:41:07+00:00"
+        },
+        {
+            "name": "shenoda/php-mvc-reusable-core",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Shenoda7/php-mvc-core.git",
+                "reference": "cd758df7aa6e4344fbd7e15310262fbe0e91dd91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Shenoda7/php-mvc-core/zipball/cd758df7aa6e4344fbd7e15310262fbe0e91dd91",
+                "reference": "cd758df7aa6e4344fbd7e15310262fbe0e91dd91",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Shenoda\\phpmvc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Shenoda",
+                    "email": "shenodamakramibrahim@gmail.com"
+                }
+            ],
+            "description": "Core components of a custom-built PHP MVC framework",
+            "support": {
+                "issues": "https://github.com/Shenoda7/php-mvc-core/issues",
+                "source": "https://github.com/Shenoda7/php-mvc-core/tree/v1.0.2"
+            },
+            "time": "2025-07-05T14:42:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
