@@ -145,17 +145,20 @@
         },
         {
             "name": "shenoda/php-mvc-reusable-core",
-            "version": "v1.0.3",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Shenoda7/php-mvc-core.git",
-                "reference": "f4e21bb918e492134ffc82087de8b18f2bed6b5d"
+                "reference": "efe400a2ee0d78089d09da73c7cded708327d83b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Shenoda7/php-mvc-core/zipball/f4e21bb918e492134ffc82087de8b18f2bed6b5d",
-                "reference": "f4e21bb918e492134ffc82087de8b18f2bed6b5d",
+                "url": "https://api.github.com/repos/Shenoda7/php-mvc-core/zipball/efe400a2ee0d78089d09da73c7cded708327d83b",
+                "reference": "efe400a2ee0d78089d09da73c7cded708327d83b",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
             },
             "type": "library",
             "autoload": {
@@ -173,9 +176,9 @@
             "description": "Core components of a custom-built PHP MVC framework",
             "support": {
                 "issues": "https://github.com/Shenoda7/php-mvc-core/issues",
-                "source": "https://github.com/Shenoda7/php-mvc-core/tree/v1.0.3"
+                "source": "https://github.com/Shenoda7/php-mvc-core/tree/v1.0.7"
             },
-            "time": "2025-07-05T15:21:32+00:00"
+            "time": "2025-07-06T10:17:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

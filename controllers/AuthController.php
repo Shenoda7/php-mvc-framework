@@ -23,6 +23,7 @@ class AuthController extends Controller
         if ($request->isPost()) {
             $loginForm->loadData($request->getBody());
             if ($loginForm->validate() && $loginForm->login()) {
+                Application::$app->session->setFlash("success", "Logged in successfully");
                 Application::$app->response->redirect('/');
                 exit;
             }
@@ -38,7 +39,6 @@ class AuthController extends Controller
             $user->loadData($request->getBody());
 
             if ($user->validate() && $user->save()) {
-                Application::$app->session->setFlash("success", "Registered successfully");
                 Application::$app->response->redirect("/login");
             }
 
