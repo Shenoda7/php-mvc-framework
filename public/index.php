@@ -23,9 +23,7 @@ $config = [
 ];
 
 $app = new Application(dirname(__DIR__), $config);
-$app->on(Application::EVENT_BEFORE_REQUEST, function () {
-    echo "Before request...\n";
-});
+
 
 $app->router->get('/', [SiteController::class, 'home']);
 
@@ -43,3 +41,8 @@ $app->router->get('/logout', [AuthController::class, 'logout']);
 $app->router->get('/profile', [AuthController::class, 'profile']);
 
 $app->run();
+
+
+$app->on(Application::EVENT_BEFORE_REQUEST, function () {
+    //place your callback fn
+});
