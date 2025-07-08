@@ -42,7 +42,7 @@ $app->router->get('/profile', [AuthController::class, 'profile']);
 
 $app->run();
 
-
+// Do not use echo, print, or any output in event handlers that run before your framework renders the page.
 $app->on(Application::EVENT_BEFORE_REQUEST, function () {
-    //place your callback fn
+    // place your callback function
 });

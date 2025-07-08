@@ -23,7 +23,7 @@ class AuthController extends Controller
         if ($request->isPost()) {
             $loginForm->loadData($request->getBody());
             if ($loginForm->validate() && $loginForm->login()) {
-                Application::$app->session->setFlash("success", "Logged in successfully");
+                Application::$app->session->setFlash("success", "Logged In successfully");
                 Application::$app->response->redirect('/');
                 exit;
             }
