@@ -145,20 +145,26 @@
         },
         {
             "name": "shenoda/php-mvc-reusable-core",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Shenoda7/php-mvc-core.git",
-                "reference": "13580a26f8ffc735e572c91acc1fd2f11956a655"
+                "reference": "92625e39f105b96763c682e8fb4807d4dcd3d71c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Shenoda7/php-mvc-core/zipball/13580a26f8ffc735e572c91acc1fd2f11956a655",
-                "reference": "13580a26f8ffc735e572c91acc1fd2f11956a655",
+                "url": "https://api.github.com/repos/Shenoda7/php-mvc-core/zipball/92625e39f105b96763c682e8fb4807d4dcd3d71c",
+                "reference": "92625e39f105b96763c682e8fb4807d4dcd3d71c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
+            },
+            "require-dev": {
+                "designsecurity/progpilot": "^1.1",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpstan/phpstan": "^2.1",
+                "squizlabs/php_codesniffer": "^3.13"
             },
             "type": "library",
             "autoload": {
@@ -176,9 +182,9 @@
             "description": "Core components of a custom-built PHP MVC framework",
             "support": {
                 "issues": "https://github.com/Shenoda7/php-mvc-core/issues",
-                "source": "https://github.com/Shenoda7/php-mvc-core/tree/v1.0.8"
+                "source": "https://github.com/Shenoda7/php-mvc-core/tree/v1.0.9"
             },
-            "time": "2025-07-06T11:57:10+00:00"
+            "time": "2025-07-08T12:21:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
