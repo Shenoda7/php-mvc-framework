@@ -13,6 +13,8 @@ git clone git@github.com:Shenoda7/php-mvc-framework.git
 cd php-mvc-framework
 ```
 
+
+
 ### 2. **Install Dependencies**
 
 Ensure you have Composer installed, then run the following command to install the required dependencies, including the core package `shenoda/php-mvc-reusable-core`:
@@ -20,6 +22,24 @@ Ensure you have Composer installed, then run the following command to install th
 ```bash
 composer install
 ```
+
+Alternatively, you can use the provided `setup.sh` script to automate the installation and configuration process. This script checks for required tools (Composer, PHP, MySQL), installs dependencies, sets up the `.env` file, runs database migrations, and starts the PHP development server on an available port (tries 8080, 8000, 8081).
+
+To use the script:
+
+1. Make it executable:
+   ```bash
+   chmod +x setup.sh
+   ```
+
+2. Run the script:
+   ```bash
+   ./setup.sh
+   ```
+
+3. Follow the prompts to configure your database settings.
+
+The script will handle dependency installation and other setup steps, ensuring a smooth and consistent setup experience. If the script encounters issues (e.g., port conflicts or missing tools), it will provide clear error messages with troubleshooting steps.
 
 The `composer.json` file is preconfigured to include the necessary dependencies:
 
